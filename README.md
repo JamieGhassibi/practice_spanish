@@ -1,9 +1,10 @@
 # Practice Spanish App
 
-## Current use
+## Installation
 
-1. Download somewhere.
-2. Open a terminal to that location and run `python practice_spanish.py`.
-3. An English phrase will be presented. Translate it to Spanish aloud.
-4. Press enter to see if you're correct.
-5. Press enter again to see the next phrase.
+0. Install git and hub. On MacOS and Linux, use `brew install git hub`
+0. Pick/create a folder where you want to download these files.
+0. Open a terminal and `cd` to the folder you just created.
+0. In the terminal, write `git clone https://github.com/jamieghassibi/practice_spanish`.
+0. Open a terminal to the file and run `python practice_spanish.py`.
+

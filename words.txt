@@ -1,0 +1,30 @@
+boy	el chico
+girl	la chica
+garden	el jardín
+university	la universidad
+book	el libro
+magazine	la revista
+fear	el miedo
+liberty	la libertad
+male cat	el gato
+female cat	la gata
+male dog	el perro
+female dog	la perra
+boy	el chico
+girl	la chica
+grandfather	el abuelo
+grandmother	la abuela
+dress	el vestido
+necktie	la corbata
+1	uno
+2	dos
+3	tres
+4	cuatro
+5	cinco
+6	seis
+7	siete
+8	ocho
+9	nueve
+10	diez
+man	el hombre
+pen	la pluma

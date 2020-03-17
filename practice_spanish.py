@@ -3,27 +3,32 @@ import random
 import os
 
 path = os.getcwd()
-txt_file = "phrases.txt"
-py_file = "phrases.txt"
 
-Phrase = collections.namedtuple("Phrase", "en es")
+Translation = collections.namedtuple("Translation", "en es")
 
-def shuffle_phrases():
-    with open(os.path.join(path, txt_file), 'r') as lines:
-        phrases = [Phrase(*line[:-1].split("\t")) for line in lines if line]
-    random.shuffle(phrases)
-    return phrases
+def read_txt(filename):
+    """Read from specified text file."""
+    with open(os.path.join(path, filename), 'r') as lines:
+        items = [Translation(*line[:-1].split("\t")) for line in lines if line]
+    random.shuffle(items)
+    return items
 
-def write_phrases():
+def write_list():
+    """Write list to python file."""
     raise NotImplemented
     with open(os.path.join(path, py_file), 'w') as lines:
         pass
 
 def main():
-    phrases = shuffle_phrases()
-    for phrase in phrases:
-        input(phrase.en)
-        input(phrase.es)
-        print()
+    phrases = read_txt("phrases.txt")
+    words = read_txt("words.txt")
+    for items in (phrases, words):
+        for item in items:
+            os.system('cls')
+            print("ENTER for next.")
+            print("Any key then ENTER to practice vocab or exit.")
+            print()
+            if input(item.en): break
+            if input(item.es): break
 
 main()
