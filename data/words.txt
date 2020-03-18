@@ -28,3 +28,11 @@ necktie	la corbata
 10	diez
 man	el hombre
 pen	la pluma
+plane	el avión
+conversation	la conversación
+television	la televisión
+professor	el professor
+university	la universidad
+actress	la actriz
+voice	la voz
+apple	una manzana

@@ -2,17 +2,20 @@ import collections
 import random
 import os
 
-path = os.getcwd()
+filepath = os.getcwd()
 
 def main():
     """Extract two lists, phrases and words, then shuffle."""
-    """Iterate through the English then Spanish of each list."""
+    """Iterate through the English then Spanish of each item."""
     """The user can break the loop by entering a nonempty string."""
-    phrases = random.shuffle(read_txt("phrases.txt"))
-    words = random.shuffle(read_txt("words.txt"))
+    filenames = "phrases.txt", "words.txt"
+    phrases, words = (read_txt(filename) for filename in filenames)
+    for list_ in (phrases, words): random.shuffle(list_)
     for items in (phrases, words):
         for item in items:
             os.system('cls')
+            print(item.type)
+            print()
             print("ENTER for next.")
             print("Any key then ENTER to practice vocab or exit.")
             print()
@@ -21,14 +24,18 @@ def main():
 
 def read_txt(filename):
     """Read from specified text file into a list."""
-    Translation = collections.namedtuple("Translation", "en es")
-    with open(os.path.join(path, filename), 'r') as lines:
-        return [Translation(*line[:-1].split("\t")) for line in lines if line]
+    Translation = collections.namedtuple('Translation', 'en es type')
+    with open(os.path.join(filepath, 'data', filename), 'r') as lines:
+        type_ = filename[:-4]
+        return [
+            Translation(*en_es, type_) for line in lines
+            if (en_es := line[:-1].split('\t')) # Assign name to cleaned line.
+        ]
 
 def write_list():
     """Write list to a python file to save the state of the program."""
     raise NotImplemented
-    with open(os.path.join(path, py_file), 'w') as lines:
+    with open(os.path.join(filepath, py_file), 'w') as lines:
         pass
 
 main()
