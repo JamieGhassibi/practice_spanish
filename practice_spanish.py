@@ -13,12 +13,7 @@ def main():
     for list_ in (phrases, words): random.shuffle(list_)
     for items in (phrases, words):
         for item in items:
-            os.system('cls')
-            print(item.type)
-            print()
-            print("ENTER for next.")
-            print("Any key then ENTER to practice vocab or exit.")
-            print()
+            display_header(item)
             if input(item.en): break
             if input(item.es): break
 
@@ -37,5 +32,13 @@ def write_list():
     raise NotImplemented
     with open(os.path.join(filepath, py_file), 'w') as lines:
         pass
+
+def display_header(item):
+    os.system('cls')
+    print(item.type)
+    print()
+    print("ENTER for next.")
+    print("Any key then ENTER to practice vocab or exit.")
+    print()
 
 main()
