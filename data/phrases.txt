@@ -1,4 +1,4 @@
-the kids	los chicos
+﻿the kids	los chicos
 the boys	los chicos
 the girls	las chicas
 the universities	las universidades

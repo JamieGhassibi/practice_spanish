@@ -2,12 +2,12 @@ import collections
 import random
 import os
 
-filepath = os.getcwd()
+directory = os.getcwd()
 
 def main():
-    """Extract two lists, phrases and words, then shuffle."""
+    """Extract two lists, phrases and words. Shuffle."""
     """Iterate through the English then Spanish of each item."""
-    """The user can break the loop by entering a nonempty string."""
+    """User can break loop by entering nonempty string."""
     filenames = "phrases.txt", "words.txt"
     phrases, words = (read_txt(filename) for filename in filenames)
     for list_ in (phrases, words): random.shuffle(list_)
@@ -20,25 +20,28 @@ def main():
 def read_txt(filename):
     """Read from specified text file into a list."""
     Translation = collections.namedtuple('Translation', 'en es type')
-    with open(os.path.join(filepath, 'data', filename), 'r') as lines:
-        type_ = filename[:-4]
+    filepath = os.path.join(directory, 'data', filename)
+    with open(filepath, 'r', encoding='utf-8') as lines:
         return [
-            Translation(*en_es, type_) for line in lines
-            if (en_es := line[:-1].split('\t')) # Assign name to cleaned line.
+            Translation(*en_es, filename) for line in lines
+            # Assign name to cleaned line.
+            # See using walrus expressions in comprehensions.
+            if (en_es := line.replace("\n", "").split('\t'))
         ]
 
-def write_list():
+def write_list(filename):
     """Write list to a python file to save the state of the program."""
-    raise NotImplemented
-    with open(os.path.join(filepath, py_file), 'w') as lines:
+    raise NotImplemented # May be implemented later to allow for SRS-style functionality.
+    filepath = os.path.join(directory, 'data', filename)
+    with open(filepath, 'w', encoding='utf-8') as lines:
         pass
 
 def display_header(item):
     os.system('cls')
-    print(item.type)
-    print()
     print("ENTER for next.")
     print("Any key then ENTER to practice vocab or exit.")
+    print()
+    print(item.type)
     print()
 
 main()

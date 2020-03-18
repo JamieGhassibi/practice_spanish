@@ -1,4 +1,4 @@
-boy	el chico
+﻿boy	el chico
 girl	la chica
 garden	el jardín
 university	la universidad
@@ -35,4 +35,4 @@ professor	el professor
 university	la universidad
 actress	la actriz
 voice	la voz
-apple	una manzana
+apple	la manzana
